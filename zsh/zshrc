@@ -17,6 +17,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source <(fzf --zsh)
 
 pokemon-colorscripts --no-title -s -r
 
@@ -33,8 +34,10 @@ source ~/.zshAlias/auto-sug.zsh
 source ~/.zshAlias/keybindings.zsh
 
 alias fucking="sudo "
-alias bat="/usr/bin/batcat --theme=gruvbox-dark "
+alias cat="/usr/bin/batcat --theme=gruvbox-dark "
 alias br="cd /mnt/eb2f1159-9c91-4b6c-be64-cf3b468945ff/codes/personal/java/microservices/ecommerce-microservice && tn brief"
+alias f='nvim $(fzf -m --preview "/usr/bin/batcat --theme=gruvbox-dark --color=always  {}")'
+alias dk='docker container rm $(docker container ls --format "{{.ID}} {{.Image}} {{.Names}}" | fzf --multi | awk "{print \$1}")'
 
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 export MANPAGER='nvim +Man!'
