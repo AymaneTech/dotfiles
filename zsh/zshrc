@@ -1,0 +1,42 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export ZSH="$HOME/.oh-my-zsh"
+export EDITOR='nvim'
+
+# ZSH_THEME="xiong-chiamiov-plus"
+# ZSH_THEME="robbyrussell
+# ZSH_THEME="eastwood"
+# ZSH_THEME="simple"
+# ZSH_THEME="lukerandall"
+ZSH_THEME="miloshadzic"
+plugins=( 
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+pokemon-colorscripts --no-title -s -r
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source ~/.zshAlias/sail.zsh
+source ~/.zshAlias/laravel.zsh
+source ~/.zshAlias/react.zsh
+source ~/.zshAlias/tmux.zsh
+source ~/.zshAlias/services.zsh
+source ~/.zshAlias/mvn.zsh
+source ~/.zshAlias/git.zsh
+source ~/.zshAlias/auto-sug.zsh
+source ~/.zshAlias/keybindings.zsh
+
+alias fucking="sudo "
+alias bat="/usr/bin/batcat --theme=gruvbox-dark "
+alias br="cd /mnt/eb2f1159-9c91-4b6c-be64-cf3b468945ff/codes/personal/java/microservices/ecommerce-microservice && tn brief"
+
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export MANPAGER='nvim +Man!'
+
+# fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
