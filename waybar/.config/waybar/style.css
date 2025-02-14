@@ -25,6 +25,7 @@ window#waybar {
   padding: 0 4px; /* Reduced padding */
   margin: 0 2px;
   border-radius: 3px;
+  color: white;
 }
 
 #workspaces button.focused {
