@@ -48,3 +48,14 @@ alias c="clear"
 
 alias ff="exec $SHELL"
 alias v="nvim"
+
+# alias intellij_path="~/.local/share/JetBrains/Toolbox/scripts/idea"
+# alias idea="intellij_path \"\$@\" &>/dev/null &"
+idea() {
+    if [ -n "$1" ]; then
+        PROJECT_DIR=$(realpath "$1")
+        ~/.local/share/JetBrains/Toolbox/scripts/idea "$PROJECT_DIR" &>/dev/null &
+    else
+        ~/.local/share/JetBrains/Toolbox/scripts/idea &>/dev/null &
+    fi
+}

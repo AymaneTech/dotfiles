@@ -1,68 +1,139 @@
-@define-color dark-bg #282828; /* Gruvbox dark background */
-@define-color light-bg #3c3836; /* Mantle */
-@define-color light-fg #ebdbb2; /* Light text */
-@define-color yellow #fabd2f; /* Warning */
-@define-color green #b8bb26; /* Success */
-@define-color red #fb4934; /* Critical */
-@define-color blue #83a598; /* Blue */
-@define-color teal #8ec07c; /* Teal */
-@define-color active #d3869b; /* Active (Pink/Mauve) */
+/* Gruvbox Color Palette */
+@define-color dark-bg #282828;
+@define-color light-bg #3c3836;
+@define-color light-fg #ebdbb2;
+@define-color yellow #fabd2f;
+@define-color green #b8bb26;
+@define-color red #fb4934;
+@define-color blue #83a598;
+@define-color teal #8ec07c;
+@define-color active #d3869b;
+@define-color orange #fe8019;
+@define-color gray #928374;
 
+/* Global Styling */
 * {
-  font-family: "MesloLGS Nerd Font Mono Bold";
-  font-size: 12px; /* Smaller font size */
+    font-family: "MesloLGS Nerd Font Mono Bold";
+    font-size: 12px;
+    transition: all 0.3s ease;
 }
 
+/* Waybar Main Window */
 window#waybar {
-  background-color: @crust;
-  color: @overlay0;
-  /* border-bottom: 1px solid @base; */
-  padding: 0 2px; /* Adjusted padding for smaller height */
-  min-height: 26px; /* Use min-height instead of height */
+    background: linear-gradient(170deg, @dark-bg 60%, rgba(40, 40, 40, 0.9) 100%);
+    color: @light-fg;
+    border-radius: 12px;
+    padding: 2px 6px;
+    min-height: 24px;
+    border: 1px solid rgba(146, 131, 116, 0.1);
+}
+
+/* Enhanced Workspaces Styling */
+#workspaces {
+    background: rgba(60, 56, 54, 0.3);
+    border-radius: 12px;
+    padding: 2px;
+    margin: 1px;
 }
 
 #workspaces button {
-  padding: 0 4px; /* Reduced padding */
-  margin: 0 2px;
-  border-radius: 3px;
-  color: white;
+    padding: 1px 8px;
+    margin: 2px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    background: rgba(60, 56, 54, 0.6);
+    color: @light-fg;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Workspace Button States */
+#workspaces button:hover {
+    background: linear-gradient(135deg, rgba(146, 131, 116, 0.4) 0%, rgba(168, 153, 132, 0.4) 100%);
+    border: 1px solid rgba(250, 189, 47, 0.3);
+    box-shadow: 0 0 8px rgba(250, 189, 47, 0.2);
 }
 
 #workspaces button.focused {
-  background-color: @green;
-  color: @base;
+    background: linear-gradient(135deg, @green 0%, @teal 100%);
+    color: @dark-bg;
+    border: 1px solid rgba(184, 187, 38, 0.8);
+    box-shadow: 0 0 10px rgba(184, 187, 38, 0.4);
 }
 
 #workspaces button.active {
-  background-color: @yellow;
-  color: @base;
+    background: linear-gradient(135deg, @yellow 0%, @orange 100%);
+    color: @dark-bg;
+    border: 1px solid rgba(250, 189, 47, 0.8);
+    box-shadow: 0 0 10px rgba(250, 189, 47, 0.4);
 }
 
 #workspaces button.urgent {
-  background-color: @red;
-  color: @base;
+    background: linear-gradient(135deg, @red 0%, @orange 100%);
+    color: @light-fg;
+    border: 1px solid rgba(251, 73, 52, 0.8);
+    animation: urgent-pulse 1.5s infinite;
 }
 
+/* Enhanced Urgent Animation */
+@keyframes urgent-pulse {
+    0% {
+        box-shadow: 0 0 8px rgba(251, 73, 52, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(251, 73, 52, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 8px rgba(251, 73, 52, 0.4);
+    }
+}
+
+/* Module Styling */
 #pulseaudio,
 #clock,
 #battery,
 #network {
-  margin: 1px 4px; /* Reduced margin for compactness */
-  padding: 2px 6px; /* Reduced padding */
-  border-radius: 3px;
+    margin: 2px 6px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(60, 56, 54, 0.4);
+    transition: all 0.3s ease;
 }
 
 #clock {
-  color: @maroon;
-  border-bottom: 1px solid @maroon;
+    background: linear-gradient(135deg, rgba(211, 134, 155, 0.2) 0%, rgba(177, 98, 134, 0.2) 100%);
+    color: @active;
+    border-bottom: 2px solid @active;
 }
 
 #battery {
-  color: @green;
-  border-bottom: 1px solid @green;
+    background: linear-gradient(135deg, rgba(184, 187, 38, 0.2) 0%, rgba(142, 192, 124, 0.2) 100%);
+    color: @green;
+    border-bottom: 2px solid @green;
 }
 
 #network {
-  color: @blue;
-  border-bottom: 1px solid @blue;
+    background: linear-gradient(135deg, rgba(131, 165, 152, 0.2) 0%, rgba(104, 157, 106, 0.2) 100%);
+    color: @blue;
+    border-bottom: 2px solid @blue;
+}
+
+/* Module Hover Effects */
+#pulseaudio:hover,
+#clock:hover,
+#battery:hover,
+#network:hover {
+    background: rgba(60, 56, 54, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Tooltip */
+tooltip {
+    background: linear-gradient(170deg, @light-bg 0%, rgba(60, 56, 54, 0.95) 100%);
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: @light-fg;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(235, 219, 178, 0.1);
 }
