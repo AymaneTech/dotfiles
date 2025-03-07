@@ -1,9 +1,16 @@
 alias bat="bat --theme=gruvbox-dark"
 
-alias f='nvim $(fzf -m --preview "/usr/bin/batcat --theme=gruvbox-dark --color=always  {}")'
+alias f='nvim $(fzf -m --preview "bat --color=always  {}")'
 
 alias dk='docker container rm $(docker container ls --format "{{.ID}} {{.Image}} {{.Names}}" | fzf --multi | awk "{print \$1}")'
+# alias dexec='docker exec -it $(docker container ls --format "{{.ID}} {{.Image}} {{.Names}}" | fzf --multi | awk "{print \$1}") bash'
 alias pk='sudo -v; sudo lsof -i -P -n | sudo grep LISTEN | fzf --multi | awk "{print $2}" | xargs -r sudo kill -9'
+
+dexec() {
+  shell=${1:-bash}  # Default to bash if no argument is provided
+  docker exec -it $(docker container ls --format "{{.ID}} {{.Image}} {{.Names}}" | fzf --multi | awk '{print $1}') $shell
+}
+
 
 # Docker
 alias dc="docker compose"
@@ -59,3 +66,7 @@ idea() {
         ~/.local/share/JetBrains/Toolbox/scripts/idea &>/dev/null &
     fi
 }
+
+## this is temp variable 
+alias db="docker exec -it db psql -h localhost -p 5432 -U pguser -d prod_db  -W"
+
