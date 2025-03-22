@@ -5,5 +5,3 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.opt.clipboard = "unnamedplus"
 
-
-vim.keymap.set("n", "YY", "va{Vy", opts)
