@@ -1,0 +1,16 @@
+session_name: servers
+windows:
+  - window_name: server
+    panes:
+      - shell_command:
+          - sdk use java 21.0.6-tem
+          - cd ~/codes/personal/pharma
+          - docker compose up -d
+          - cd server
+          - mvn spring-boot:run -q
+  - window_name: client
+    panes:
+      - shell_command:
+        - cd ~/codes/personal/pharma/client
+        - npm run dev
+

@@ -1,0 +1,18 @@
+session_name: evento
+windows:
+  - window_name: frontend
+    panes:
+      - shell_command:
+          - cd ~/codes/personal/pharma/client
+          - nvim
+  - window_name: default
+    panes:
+      - shell_command:
+        - cd ~/codes/personal/pharma/client
+  - window_name: backend
+    panes:
+      - shell_command:
+        - cd ~/codes/personal/pharma/server
+        - nvim
+
+

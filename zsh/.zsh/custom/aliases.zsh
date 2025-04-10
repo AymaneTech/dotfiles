@@ -56,6 +56,9 @@ alias c="clear"
 alias ff="exec $SHELL"
 alias v="nvim"
 
+alias loa="tmuxp load"
+alias loap="tmuxp load servers evento"
+
 # alias intellij_path="~/.local/share/JetBrains/Toolbox/scripts/idea"
 # alias idea="intellij_path \"\$@\" &>/dev/null &"
 idea() {
@@ -69,4 +72,3 @@ idea() {
 
 ## this is temp variable 
 alias db="docker exec -it db psql -h localhost -p 5432 -U pguser -d prod_db  -W"
-

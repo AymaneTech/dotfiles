@@ -1,0 +1,9 @@
+session_name: payhub
+windows:
+  - window_name: default
+    panes:
+      - shell_command:
+          - cd ~/codes/work/payhub/backend
+          - eval "$(ssh-agent -s)"
+          - ssh-add ~/.ssh/gitlab_progressoft
+
