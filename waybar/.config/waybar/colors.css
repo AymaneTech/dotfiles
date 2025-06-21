@@ -1,0 +1,57 @@
+/* @define-color base   #24273a; */
+/* @define-color mantle #1e2030; */
+/* @define-color crust  #181926; */
+/**/
+/* @define-color text     #cad3f5; */
+/* @define-color subtext0 #a5adcb; */
+/* @define-color subtext1 #b8c0e0; */
+/**/
+/* @define-color surface0 #363a4f; */
+/* @define-color surface1 #494d64; */
+/* @define-color surface2 #5b6078; */
+/**/
+/* @define-color overlay0 #6e738d; */
+/* @define-color overlay1 #8087a2; */
+/* @define-color overlay2 #939ab7; */
+/**/
+/* @define-color blue      #8aadf4; */
+/* @define-color lavender  #b7bdf8; */
+/* @define-color sapphire  #7dc4e4; */
+/* @define-color sky       #91d7e3; */
+/* @define-color teal      #8bd5ca; */
+/* @define-color green     #a6da95; */
+/* @define-color yellow    #eed49f; */
+/* @define-color peach     #f5a97f; */
+/* @define-color maroon    #ee99a0; */
+/* @define-color red       #ed8796; */
+/* @define-color mauve     #c6a0f6; */
+/* @define-color pink      #f5bde6; */
+/* @define-color flamingo  #f0c6c6; */
+/* @define-color rosewater #f4dbd6; */
+
+@define-color base   #1d2021;
+@define-color mantle #282828;
+@define-color crust  #1b1b1b;
+@define-color text     #ebdbb2;
+@define-color subtext0 #d5c4a1;
+@define-color subtext1 #bdae93;
+@define-color surface0 #3c3836;
+@define-color surface1 #504945;
+@define-color surface2 #665c54;
+@define-color overlay0 #7c6f64;
+@define-color overlay1 #928374;
+@define-color overlay2 #a89984;
+@define-color blue      #83a598;
+@define-color lavender  #d3869b;
+@define-color sapphire  #8ec07c;
+@define-color sky       #87ceeb;
+@define-color teal      #8ec07c;
+@define-color green     #b8bb26;
+@define-color yellow    #fabd2f;
+@define-color peach     #fe8019;
+@define-color maroon    #cc241d;
+@define-color red       #fb4934;
+@define-color mauve     #d3869b;
+@define-color pink      #d3869b;
+@define-color flamingo  #fe8019;
+@define-color rosewater #ebdbb2;
