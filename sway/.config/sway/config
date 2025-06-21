@@ -9,11 +9,43 @@ set $term ghostty
 
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
+# Gruvbox Color Definitions
+set $bg0        #1d2021
+set $bg1        #282828
+set $bg2        #3c3836
+set $bg3        #504945
+set $bg4        #665c54
+set $fg0        #ebdbb2
+set $fg1        #d5c4a1
+set $fg2        #bdae93
+set $red        #fb4934
+set $green      #b8bb26
+set $yellow     #fabd2f
+set $orange     #fe8019
+set $blue       #83a598
+set $purple     #d3869b
+set $aqua       #8ec07c
+
 include /etc/sway/config-vars.d/*
+
+# Window appearance and borders
+default_border pixel 3
+default_floating_border pixel 3
+smart_borders on
+smart_gaps on
+gaps inner 8
+gaps outer 4
+
+# Window colors           border  background text   indicator child_border
+client.focused           $orange $bg1       $fg0   $yellow   $orange
+client.focused_inactive  $bg3    $bg1       $fg2   $bg3      $bg3
+client.unfocused        $bg2    $bg0       $fg2   $bg2      $bg2
+client.urgent           $red    $red       $fg0   $red      $red
+client.placeholder      $bg2    $bg0       $fg2   $bg2      $bg2
+client.background       $bg0
 
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
 output * bg /home/geek/Pictures/wallpapers/vim.png fill
 
     bindsym $mod+Return exec $term
@@ -23,8 +55,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
     # bindsym $mod+space  exec $menu
 
     # bindsym $mod+space exec wofi --show drun
-    bindsym $mod+space exec wofi --show drun --prompt "Launch: "
-
+    bindsym $mod+space exec wofi --show drun --prompt "Launch: " --style ~/.config/wofi/style.css --allow-images --insensitive
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -35,6 +66,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
     bindsym $mod+Shift+c reload
 
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -56,6 +88,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -83,6 +116,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
@@ -108,6 +142,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -120,6 +155,7 @@ output * bg /home/geek/Pictures/wallpapers/vim.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -145,6 +181,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Input configuration
 input type:touchpad {
     natural_scroll enabled
     tap enabled
@@ -154,24 +191,42 @@ input type:touchpad {
     pointer_accel 0.3
 }
 
+# Media keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# Brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl s +10%
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
+# Additional useful bindings
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy  # Screenshot selection
+bindsym Print exec grim - | wl-copy  # Screenshot full screen
+bindsym $mod+Shift+p exec swaylock -f -c 1d2021  
+
+# Window rules for better floating behavior
+for_window [app_id="floating"] floating enable
+for_window [title="Picture-in-Picture"] floating enable, sticky enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+
 bar {
     position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
+    swaybar_command waybar
+    
+    # Gruvbox themed bar colors
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline $fg0
+        background $bg0
+        separator  $bg4
+        
+        # workspace colors       border  background text
+        focused_workspace       $orange $orange    $bg0
+        active_workspace        $bg3    $bg3       $fg0
+        inactive_workspace      $bg1    $bg1       $fg2
+        urgent_workspace        $red    $red       $fg0
+        binding_mode           $yellow $yellow    $bg0
     }
 }
 
