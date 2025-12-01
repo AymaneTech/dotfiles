@@ -8,9 +8,9 @@
     // "format_focused" : "< %g ● >",
     "format-icons": {
       "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
+      "2": "",
+      "3": "",
+      "4": "",
       "5": "",
       "6": "",
       "7": "",
@@ -59,12 +59,6 @@
     "format-stopped": "",
     // Commands to execute on events
     "on-click": "mpc -q pause && mpc -q next && mpc -q start"
-  },
-  "custom/swap": {
-    "on-click": "~/.config/waybar/scripts/swap.sh",
-    "format": "Bg  ",
-    "tooltip": true,
-    "tooltip-format": "Swap between waybar Themes"
   },
   "custom/mpd": {
     "format": " {title} - {artist}",
@@ -243,11 +237,6 @@
     "on-click": "alacritty -e sudo pacman -Syu", // update system
     "signal": 8
   },
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "wlogout -p layer-shell",
-    "tooltip": false
-  },
   "custom/keyboard-layout": {
     "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
     // Interval set only as a fallback, as the value is updated by signal
@@ -257,10 +246,5 @@
     "signal": 1, // SIGHUP
     "tooltip": false,
     "on-click": "~/.config/waybar/scripts/keyhint.sh"
-  },
-  "custom/launcher": {
-    "format": "",
-    "on-click": "rofi -show drun -replace",
-    "tooltip": false
   }
 }

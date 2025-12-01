@@ -46,7 +46,8 @@ client.background       $bg0
 
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-output * bg /home/geek/Pictures/wallpapers/vim.png fill
+    exec nm-applet
+output * bg /home/geek/Pictures/wallpapers/gruvbox_tux.png fill
 
     bindsym $mod+Return exec $term
 

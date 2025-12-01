@@ -12,6 +12,8 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n"'
+
 
 if [ -f '/home/geek/google-cloud-sdk/path.zsh.inc' ]; then . '/home/geek/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/home/geek/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/geek/google-cloud-sdk/completion.zsh.inc'; fi

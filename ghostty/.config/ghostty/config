@@ -1,8 +1,4 @@
-theme = gruvbox-material
-# theme = GruvboxDark
-# font-family = Meslo LGS Nerd Font Mono
-# font-family = CaskaydiaMono Nerd Font
-# font-family = CaskaydiaCove Nerd Font
+theme = Gruvbox Dark Hard
 
 font-family = CaskaydiaCove Nerd Font
 font-size = 12
