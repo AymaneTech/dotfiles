@@ -54,10 +54,44 @@ return {
         }),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
 				}),
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(entry, vim_item)
+						local kind_icons = {
+							Text = "󰊄",
+							Method = "󰆧",
+							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
+							Variable = "󰀫",
+							Class = "󰠱",
+							Interface = "",
+							Module = "",
+							Property = "󰜢",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "",
+							Keyword = "󰌋",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "",
+							EnumMember = "",
+							Constant = "󰏿",
+							Struct = "󰙅",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "󰅲",
+						}
+						vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
+						return vim_item
+					end,
+				},
 			})
 		end,
 	},

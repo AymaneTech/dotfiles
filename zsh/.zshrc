@@ -8,9 +8,13 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # eval $(keychain --eval --agents ssh ~/.ssh/personal ~/.ssh/work 2>/dev/null)
 export PATH=$HOME/.local/bin:$PATH
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/opt/zig
+
+
+# for mobile dev
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n"'
 
