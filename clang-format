@@ -1,0 +1,51 @@
+---
+# 42 School Coding Style Configuration
+# Based on the official 42 norm
+
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: ForIndentation
+ColumnLimit: 80
+
+# Braces
+BreakBeforeBraces: Linux
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+
+# Spaces
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpacesInCStyleCastParentheses: false
+
+# Pointer alignment
+PointerAlignment: Right
+ReferenceAlignment: Right
+
+# Indentation
+IndentCaseLabels: false
+IndentGotoLabels: false
+ContinuationIndentWidth: 4
+
+# Line break
+BreakStringLiterals: true
+BreakBeforeBinaryOperators: All
+
+# Alignment
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: false
+AlignTrailingComments: false
+AlignOperands: false
+
+# Comments
+ReflowComments: true
+SpaceBeforeBlockComments: true
+
+# Other
+InsertBraces: false
+RemoveBracesLLVM: false
